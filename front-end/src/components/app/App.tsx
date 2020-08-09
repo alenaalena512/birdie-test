@@ -1,40 +1,46 @@
 import * as React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { RootState } from '@App/store/reducers';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-
-import Title from '@App/components/Title';
-import Logo from '@App/components/Logo';
-import SubTitle from '@App/components/SubTitle';
+import InfoZone from '@App/components/InfoZone';
+import Client from '@App/components/Client';
+import 'antd/dist/antd.css';
 
 const LogoUrl = require('../../assets/images/logo-birdie.svg');
 
 interface AppProps {
-
 }
 
 interface AppState {
-
 }
 
 const GlobalStyle = createGlobalStyle`
   body {
-    height: 100vh;
     background-color: #F9F9F9;
-    > div {
-      height: 100%;
-    }
   }
+`;
+
+const Logo = styled.img`
+  width: 100px;
+  margin-bottom: 20px;
 `;
 
 const AppContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+`;
+
+const Side = styled.div`
+  width: 300px;
+  height: 100vh;
+  padding: 45px;
+`;
+
+const Main = styled.div`
+  height: 100vh;
+  width: calc(100vw - 300px);
+  padding: 40px;
+  overflow-y: scroll;
 `;
 
 class App extends React.Component<AppProps, AppState> {
@@ -47,17 +53,17 @@ class App extends React.Component<AppProps, AppState> {
       <>
         <GlobalStyle />
         <AppContainer>
-          <Logo src={LogoUrl} />
-          <Title>Welcome to the birdie test</Title>
-          <SubTitle>Best of luck!</SubTitle>
+          <Side>
+            <Logo src={LogoUrl} />
+            <Client />
+          </Side>
+          <Main>
+            <InfoZone />
+          </Main>
         </AppContainer>
       </>
     );
   }
 }
 
-const mapStateToProps = (state: RootState, ownProps: object) => {};
-
-const mapDispatchToProps = (dispatch: Dispatch<RootState>) => {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

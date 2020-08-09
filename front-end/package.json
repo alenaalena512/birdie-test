@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/enzyme": "^3.10.5",
+    "antd": "^4.5.2",
+    "lodash": "^4.17.19",
+    "luxon": "^1.24.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.10.0",
     "react-scripts-redux-ts": "1.2.1",
     "redux-saga": "^1.0.2",
     "styled-components": "^4.2.0"
@@ -20,18 +25,23 @@
   "jest": {
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "@App/(.*)": "<rootDir>/src/$1"
+      "@App/(.*)": "<rootDir>/src/$1",
+      "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.ts"
     }
   },
   "devDependencies": {
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/history": "^4.7.2",
     "@types/jest": "^24.0.13",
+    "@types/lodash": "^4.14.159",
     "@types/node": "^12.0.1",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.0.9",
     "@types/redux": "^3.6.0",
     "@types/styled-components": "^4.1.15",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
     "typescript": "^3.4.5"
   }
 }
